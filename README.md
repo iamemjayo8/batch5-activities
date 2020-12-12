@@ -4,7 +4,7 @@ You can use the [editor on GitHub](https://github.com/iamemjayo8/batch5-activiti
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-[Chessboard](/chessboard/index.html)
-[Chessboard_Grid](/chessboard_grid/index.html)
-[Day_1_HW](/Day1HW/index.html)
-[Tribute_Activity](/TributeActivity/index.html)
+-[Chessboard](/chessboard/index.html)
+-[Chessboard_Grid](/chessboard_grid/index.html)
+-[Day_1_HW](/Day1HW/index.html)
+-[Tribute_Activity](/TributeActivity/index.html)
