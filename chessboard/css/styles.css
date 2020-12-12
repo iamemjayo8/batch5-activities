@@ -1,0 +1,97 @@
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color:rgb(92, 121, 122);
+    height: 10%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+#left{
+    margin-left: 100px;
+}
+#right{
+    margin-right: 100px;
+}
+a{
+    text-decoration: none;
+    font-size: 4vw;
+    text-transform: uppercase;
+    color: rgb(47, 47, 233);
+}
+#main{
+    margin-top: 100px;
+    width: 100%;
+    height: 40vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.chessboard {
+    width: 40vw;
+    height: 100%;
+    margin: 20px;
+    border: 25px solid #333;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+.chessboard div{
+  width: 100%;
+  font-size: 3vw;
+}
+#row1, #row2, #row3, #row4, #row5, #row6, #row7, #row8{    
+    height: 100%;
+}
+#row1{
+    display: flex;
+}
+#row2{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#row3{
+    display: flex;
+}
+#row4{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#row5{
+    display: flex;
+}
+#row6{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#row7{
+    display: flex;
+}
+#row8{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.white{
+    background-color: white;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 50px;
+    }
+.black{
+    background-color: grey;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 50px;
+    }
+@media only screen and (max-width:620px){
+  #header, #main, .chessboard, .white, .black, #row1, #row2, #row3, #row4, #row5, #row6, #row7, #row8{
+    width:100%;
+  }
+}
+*{
+  box-sizing: border-box;
+}

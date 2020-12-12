@@ -1,0 +1,246 @@
+#header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    background-color:rgb(255, 230, 0);
+    height: 10%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+#header div{
+    font-size: 3vw;
+}
+#r{
+    font-size: 40px; 
+}
+#l{
+    font-size: 40px;
+}
+#head-nav{
+    width: 40%;
+    display: flex;
+    justify-content: space-between
+}
+#head-nav a{
+    font-size: 2.5vw;
+}
+body{
+    width: 100%;
+}
+#main-info{    
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    display: flex;
+    background-color: rgb(140, 55, 219);
+    align-items: center;
+    border: 2px solid yellow;
+    /*background-image: url(./images/bg.jpg);
+    background-repeat: no-repeat;*/
+}
+#img-div{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50;
+    margin-left: 10px;
+    margin-top: 120px;
+    border: 2px solid yellow;
+}
+#img-div img{
+    width: 100%;
+}
+#right-info{  
+    float: left; 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    margin-top: 120px;
+    margin-right: 20px;
+}
+#right-info p{
+    text-align: justify;
+}
+#right-info .info{
+    font-size: 3vw;
+}
+#right-info .info-qoute{
+    font-size: 3.5vw;
+}
+img{
+    width: 100%;
+}
+#img-caption{
+    text-align: center;
+}
+#infobox{
+    border: 1px solid #a2a9b1;
+    border-spacing: 3px;
+    background-color: #f8f9fa;
+    color: black;
+    margin: 0.5em 0 0.5em 1em;
+    padding: 0.2em;
+    float: right;
+    clear: right;
+    font-size: 88%;
+    line-height: 1.5em;
+}
+.infobox caption{
+    font-size: 1vw;
+    font-weight: bold;
+    padding: 0.2em;
+    text-align: center;
+    color: yellow;
+}
+#th-head{   
+    text-align: center;
+    width: 100%;
+    background-color: #1D428A;
+    color: #FFFFFF;
+    border: 2.5px solid rgb(255, 230, 0);
+    font-size: 1vw;
+
+}
+#img-div .infobox{
+    width: 100%;
+}
+.infobox td, .infobox th{
+    vertical-align: middle;
+    text-align: left;
+    font-size: .9vw;
+}
+
+th{
+    display: table-cell;
+}
+table{
+    width: 10vw;
+}
+p, .info{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(255, 230, 0);
+    font-size: 1.5vw;
+}
+h2, h3, li{
+    color:rgb(255, 230, 0);
+}
+a{
+    text-decoration: none;
+}
+#tribute-info{
+    height: 100%;
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    background-color: rgb(140, 55, 219);
+    margin-top: 0px;
+    flex-direction: column;
+}
+#tribute-info-header{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    background-color:rgb(255, 230, 0);
+    color: #1D428A;
+    height: 8%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    text-transform: uppercase;
+}
+#career-sec{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 996px;
+}
+#up{
+    margin-top: 10%;
+}
+#up h2{
+    font-size: 2vw;
+}
+#up h3{
+    font-size: 1.5vw;
+}
+#down{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+#info-text{
+    width: 70%;
+    text-align: justify;
+    margin-right: 10px;
+}
+#info-text p{
+    font-size: 1vw;
+}
+#info-text div{
+    text-align: center;
+}
+#info-text ul{
+    list-style: none;
+    text-decoration: underline;
+}
+#side-img{
+    width: 30%;
+}
+#side-img .infobox{
+    width: 100%;
+}
+.infobox #caption2{
+    text-align: center;
+}
+li{
+    line-height: 2em;
+    font-size: 1vw;
+}
+#stats{
+    height: 960px;
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    background-color: rgb(140, 55, 219);
+    margin-top: 0px;
+    flex-direction: column;
+}
+#stats-header{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    background-color:rgb(255, 230, 0);
+    color: #1D428A;
+    height: 8%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    text-transform: uppercase;
+}
+.stats-data{
+    table-layout: fixed;
+    width: 100%;
+    font-size: 1vw;
+}
+.stats-data td, tr{
+    text-align: center;
+    color: rgb(245, 229, 83);
+}
+@media only screen and (max-width:620px){
+    #header, #main, #main-info, #tribute-info, #stats, .infobox{
+        width: 100%;
+    }
+}
+*{
+    box-sizing: border-box;
+}
