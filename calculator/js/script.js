@@ -1,0 +1,156 @@
+class calculator {
+  constructor(displayValue, operator, firstOperand, secondOperand){
+    this.displayValue = displayValue;    
+    isSecondOperandEnter = false;
+    this.currentValue = null;
+    this.firstOperand = firstOperand;
+    this.secondOperand = secondOperand;
+    this.operator = null;
+    this.previousOperator = operator; 
+  }        
+};
+
+function inputNum(num){
+  let calcDisplay = document.querySelector('#display')
+  if(calculator.isSecondOperandEnter === true){
+      calculator.displayValue = num;
+      calculator.isSecondOperandEnter = false;
+  }else{
+      if(calcDisplay.value === '0'){
+        calculator.displayValue = num;        
+      }else{
+        calculator.displayValue = calculator.displayValue + num;
+      }
+  }
+}
+function handleOperator(operator) {
+  if(calculator.firstOperand == null){
+      calculator.firstOperand = parseInt(calculator.displayValue);
+      let calcDisplay = document.querySelector('#display')
+      if(operator === '+'){           
+        calcDisplay.value = '0'; 
+        calculator.isSecondOperandEnter = true;
+        calculator.displayValue = calcDisplay.value;
+        calculator.previousOperator = operator;
+        //console.log(true);      
+    }else if(operator === '-'){
+      calcDisplay.value = '0'; 
+      calculator.isSecondOperandEnter = true;
+      calculator.displayValue = calcDisplay.value;
+      calculator.previousOperator = operator;
+    }else if(operator === '*'){
+      calcDisplay.value = '0'; 
+      calculator.isSecondOperandEnter = true;
+      calculator.displayValue = calcDisplay.value;
+      calculator.previousOperator = operator;
+    }else if(operator === '/'){
+      calcDisplay.value = '0'; 
+      calculator.isSecondOperandEnter = true;
+      calculator.displayValue = calcDisplay.value;
+      calculator.previousOperator = operator;
+    }
+  }else{
+    if(calculator.firstOperand !== null && calculator.secondOperand == null){
+      calculator.secondOperand = parseInt(calculator.displayValue);
+      if(operator === '=' && calculator.previousOperator){
+        switch(calculator.previousOperator){
+          case '+':
+            calcAdd(calculator.firstOperand, calculator.secondOperand);
+            calculator.firstOperand = null;
+            calculator.secondOperand = null;
+            calculator.operator = null;
+            calculator.previousOperator = null;
+            break;
+          case '-':
+            calcMinus(calculator.firstOperand, calculator.secondOperand);
+            calculator.firstOperand = null;
+            calculator.secondOperand = null;
+            calculator.operator = null;
+            calculator.previousOperator = null;
+            break;
+          case '*':
+            calcTimes(calculator.firstOperand, calculator.secondOperand);
+            calculator.firstOperand = null;
+            calculator.secondOperand = null;
+            calculator.operator = null;
+            calculator.previousOperator = null;
+            break;
+          case '/':
+          calcDivide(calculator.firstOperand, calculator.secondOperand);
+          calculator.firstOperand = null;
+            calculator.secondOperand = null;
+            calculator.operator = null;
+            calculator.previousOperator = null;
+          break;
+        }
+      }
+    }
+  }
+}     
+function calcAdd(firstOperand, secondOperand){
+  var result = firstOperand + secondOperand;
+  calculator.displayValue = result;
+}
+function calcMinus(firstOperand, secondOperand){
+  var result = firstOperand - secondOperand;
+  calculator.displayValue = result;
+}
+function calcTimes(firstOperand, secondOperand){
+  var result = firstOperand * secondOperand;
+  calculator.displayValue = result;
+}
+function calcDivide(firstOperand, secondOperand){
+  var result = firstOperand / secondOperand;
+  calculator.displayValue = result;
+}
+
+function updateDisplay(){
+  const display = document.querySelector('#display');
+  display.value = calculator.displayValue;
+}
+
+function clearCalc(){
+calculator.displayValue = '0';
+calculator.firstOperand = null;
+calculator.secondOperand = null;
+calculator.isSecondOperandEnter = false;
+calculator.operator = null;
+calculator.previousOperator = null;
+}
+
+window.onload = function(){  
+  const pageTitle = document.querySelector('#header-title');
+  pageTitle.innerHTML = "CALCULATOR USING JAVASCRIPT";
+  const reminder = document.querySelector('#reminder');
+  reminder.innerHTML = "Alwasy use = (equal sign) after 2nd operand.";
+  const keys = document.querySelector('.calc_keys');
+  keys.addEventListener('click', event => {
+    const {target} = event;
+    const {value} = target;
+    if(!target.matches ('button')){
+        return;
+    }
+    switch (value) {
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '=':
+          handleOperator(value);
+          break;
+        case '.':
+          isDecimal(value);
+          break;
+        case 'clear':
+          clearCalc();
+          break;
+        default:
+          if (Number.isInteger(parseFloat(value))) {
+            inputNum(value);
+          }
+      }
+updateDisplay();    
+  });
+}
+
+

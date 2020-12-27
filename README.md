@@ -5,6 +5,7 @@
 - [Day 1 HW](/Day1HW/index.html)
 - [Letter Activity](/letter_Activity/index.html)
 - [Tribute Activity](/TributeActivity/index.html)
+- [Calculator](/calculator/index.html)
 
 
 ## Challenge

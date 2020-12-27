@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <h1 id="header-title"></h1>
+        <h3 id="reminder"></h3>
+    </div>
+    <div id="calculator">
+        <input type="number" id="display" value="0" /disabled>
+        <div class="calc_keys">
+            <button type="button" value="clear" class="btn silver" id ="clear" data-action="clear">c</button>
+            <button type="button" value="%" class="btn silver ops" id="percent" data-action="percent">%</button>
+            <button type="button" value="/" class="btn orange ops" data-action="divided by">÷</button>
+            
+            <button type="button" value="7" class="btn num">7</button>
+            <button type="button" value="8" class="btn num">8</button>
+            <button type="button" value="9" class="btn num">9</button>
+            <button type="button" value="*" class="btn orange ops" data-action="times">x</button>
+
+            <button type="button" value="4" class="btn num">4</button>
+            <button type="button" value="5" class="btn num">5</button>
+            <button type="button" value="6" class="btn num">6</button>
+            <button type="button" value="-" class="btn orange ops" data-action="minus">-</button>
+
+            <button type="button" value="1" class="btn num">1</button>
+            <button type="button" value="2" class="btn num">2</button>
+            <button type="button" value="3" class="btn num">3</button>
+            <button type="button" value="+" class="btn orange ops" data-action="plus">+</button>
+
+            <button type="button" value="0" class="btn num" id="zero" data-num="0">0</button>
+            <button type="button" value="." class="btn" id="dot" data-num=".">.</button>
+            <button type="button" value="=" class="btn orange" id="equals_to" data-action="calculate">=</button>
+        </div>
+    </div>
+</body>
+</html>
