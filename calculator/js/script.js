@@ -25,8 +25,9 @@ function inputNum(num){
 }
 function handleOperator(operator) {
   if(calculator.firstOperand == null){
-      calculator.firstOperand = parseInt(calculator.displayValue);
-      let calcDisplay = document.querySelector('#display')
+    let calcDisplay = document.querySelector('#display')
+    calcDisplay.value = '0';     
+      calculator.firstOperand = parseInt(calculator.displayValue);      
       if(operator === '+'){
         calculator.isSecondOperandEnter = true;
         calculator.previousOperator = operator;
@@ -44,14 +45,13 @@ function handleOperator(operator) {
   }else{
     if(calculator.firstOperand !== null && calculator.secondOperand == null){
       calculator.secondOperand = parseInt(calculator.displayValue);
-      if(calculator.previousOperator){
-        switch(calculator.previousOperator){
+      if(operator){
+        switch(operator){
           case '+':
-            calcAdd(calculator.firstOperand, calculator.secondOperand, calculator.previousOperator);
+            calcAdd(calculator.firstOperand, calculator.secondOperand, operator);
             calculator.firstOperand = null;
             calculator.secondOperand = null;
-            calculator.operator = null;
-            calculator.previousOperator = null;
+            calculator.operator = operator;
             break;
           case '-':
             calcMinus(calculator.firstOperand, calculator.secondOperand, calculator.previousOperator);
@@ -85,7 +85,7 @@ function calcAdd(firstOperand, secondOperand, operator){
     result = firstOperand + secondOperand;
   }else{
     if(operator === '+'){
-      result = firstOperand += secondOperand;
+        result = firstOperand += secondOperand;
     }
   }
   calculator.displayValue = result;
@@ -96,7 +96,7 @@ function calcMinus(firstOperand, secondOperand, operator){
     result = firstOperand - secondOperand;
     calculator.displayValue = result;
   }else{
-    if(operator === '+'){
+    if(operator === '-'){
       result = firstOperand -= secondOperand;
       calculator.displayValue = result;
     }
@@ -108,7 +108,7 @@ function calcTimes(firstOperand, secondOperand, operator){
     result = firstOperand * secondOperand;
     calculator.displayValue = result;
   }else{
-    if(operator === '+'){
+    if(operator === '*'){
       result = firstOperand *= secondOperand;
       calculator.displayValue = result;
     }
@@ -120,7 +120,7 @@ function calcDivide(firstOperand, secondOperand, operator){
     result = firstOperand / secondOperand;
     calculator.displayValue = result;
   }else{
-    if(operator === '+'){
+    if(operator === '/'){
       result = firstOperand /= secondOperand;
       calculator.displayValue = result;
     }
