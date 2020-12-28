@@ -45,13 +45,14 @@ function handleOperator(operator) {
   }else{
     if(calculator.firstOperand !== null && calculator.secondOperand == null){
       calculator.secondOperand = parseInt(calculator.displayValue);
-      if(operator){
-        switch(operator){
+      if(calculator.previousOperator){
+        switch(calculator.previousOperator){
           case '+':
             calcAdd(calculator.firstOperand, calculator.secondOperand, operator);
             calculator.firstOperand = null;
             calculator.secondOperand = null;
-            calculator.operator = operator;
+            calculator.operator = null;
+            calculator.previousOperator = null;
             break;
           case '-':
             calcMinus(calculator.firstOperand, calculator.secondOperand, calculator.previousOperator);
@@ -93,26 +94,25 @@ function calcAdd(firstOperand, secondOperand, operator){
 function calcMinus(firstOperand, secondOperand, operator){
   var result = 0;
   if(operator === '='){
-    result = firstOperand - secondOperand;
-    calculator.displayValue = result;
+    result = firstOperand - secondOperand;    
   }else{
     if(operator === '-'){
       result = firstOperand -= secondOperand;
-      calculator.displayValue = result;
     }
   }
+  calculator.displayValue = result;
 }
 function calcTimes(firstOperand, secondOperand, operator){
   var result = 0;
   if(operator === '='){
     result = firstOperand * secondOperand;
-    calculator.displayValue = result;
   }else{
     if(operator === '*'){
       result = firstOperand *= secondOperand;
-      calculator.displayValue = result;
     }
   }
+  
+  calculator.displayValue = result;
 }
 function calcDivide(firstOperand, secondOperand, operator){
   var result = 0;
