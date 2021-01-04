@@ -28,8 +28,8 @@ deckCard.innerHTML = cardDeck();
 
 function shuffleDeck() { 
     let randomDeck = [];   
-    for(let i = 0; i < 52; i++){
-        randomDeck.push(deck[Math.floor(Math.random() * deck.length)]);
+    for(let i = 0; i < 100; i++){
+        randomDeck.push(deck.splice(Math.floor(Math.random() * (deck.length + 1)),1)[0]);
     }
     return randomDeck;
 }
