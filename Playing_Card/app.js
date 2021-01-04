@@ -2,6 +2,12 @@ const constant = {
     suits: ["♢","♡","♠","♣"],
     cardValues: ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
 }
+var bySuit = document.getElementById('bySuit');
+var deckCard = document.getElementById('deckCard');
+var randomTitle = document.getElementById('random');
+var randDeck = document.getElementById('randomDeck');
+var card = document.getElementById('card');
+var cardName = document.getElementById('cardName');
 var deck = [];
 
 function cardDeck() {
@@ -15,7 +21,10 @@ function cardDeck() {
     }
   return deck;
   }
-console.log("Arrange by Suits : " +cardDeck());
+// console.log("Arrange by Suits : " +cardDeck());
+bySuit.innerHTML = "Arrange by Suits :"
+deckCard.innerHTML = cardDeck();
+
 
 function shuffleDeck() { 
     let randomDeck = [];   
@@ -24,7 +33,9 @@ function shuffleDeck() {
     }
     return randomDeck;
 }
-console.log("Shuffle Card Deck : " + shuffleDeck());
+// console.log("Shuffle Card Deck : " + shuffleDeck());
+randomTitle.innerHTML = "Shuffle Card Deck : ";
+randDeck.innerHTML = shuffleDeck();
 
 
 
@@ -94,6 +105,7 @@ function dealCard() {
         default:
             break;
     }
-    return randValue + randSuits + " : " + valueStrName + " of " + suitStrName;
+    return "Deal Card : " + randValue + randSuits + " " + valueStrName + " of " + suitStrName;
 }
-console.log(dealCard());
+card.innerHTML = dealCard();
+// console.log(dealCard());
