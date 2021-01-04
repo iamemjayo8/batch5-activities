@@ -35,6 +35,7 @@ function cardSuit() {
     //     randVal.push(value);
     // }
     // return randVal;
+    
     let randomVal = constant.suits[Math.floor(Math.random() * constant.suits.length)];
     let randVal = [];
     for(let i = 0; i<constant.cardValues.length; i++){
