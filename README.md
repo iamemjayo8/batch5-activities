@@ -6,6 +6,7 @@
 - [Letter Activity](/letter_Activity/index.html)
 - [Tribute Activity](/TributeActivity/index.html)
 - [Calculator](/calculator/index.html)
+- [PlayingCard](/Playing_Card/index.html)
 
 
 ## Challenge
