@@ -28,10 +28,17 @@ byValue.innerHTML = "arranged by face or value in ascending / descending order :
 deckValue.innerHTML = cardDeck();
 
 function cardSuit() {
-    let randomVal = constant.cardValues[Math.floor(Math.random() * constant.cardValues.length)];
+    // let randomVal = constant.cardValues[Math.floor(Math.random() * constant.cardValues.length)];
+    // let randVal = [];
+    // for(let i = 0; i<constant.suits.length; i++){
+    //     var value = randomVal + constant.suits[i];
+    //     randVal.push(value);
+    // }
+    // return randVal;
+    let randomVal = constant.suits[Math.floor(Math.random() * constant.suits.length)];
     let randVal = [];
-    for(let i = 0; i<constant.suits.length; i++){
-        var value = randomVal + constant.suits[i];
+    for(let i = 0; i<constant.cardValues.length; i++){
+        var value =  constant.cardValues[i] + randomVal;
         randVal.push(value);
     }
     return randVal;
