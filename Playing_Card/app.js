@@ -2,12 +2,14 @@ const constant = {
     suits: ["♢","♡","♠","♣"],
     cardValues: ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
 }
-var bySuit = document.getElementById('bySuit');
-var deckCard = document.getElementById('deckCard');
+var byValue = document.getElementById('byValue');
+var deckValue = document.getElementById('deckValue');
 var randomTitle = document.getElementById('random');
 var randDeck = document.getElementById('randomDeck');
 var card = document.getElementById('card');
 var cardName = document.getElementById('cardName');
+var bySuit = document.getElementById('bySuit');
+var deckSuit = document.getElementById('deckSuit');
 var deck = [];
 
 function cardDeck() {
@@ -22,8 +24,20 @@ function cardDeck() {
   return deck;
   }
 // console.log("Arrange by Suits : " +cardDeck());
-bySuit.innerHTML = "Arrange by Suits :"
-deckCard.innerHTML = cardDeck();
+byValue.innerHTML = "arranged by face or value in ascending / descending order :"
+deckValue.innerHTML = cardDeck();
+
+function cardSuit() {
+    let randomVal = constant.cardValues[Math.floor(Math.random() * constant.cardValues.length)];
+    let randVal = [];
+    for(let i = 0; i<constant.suits.length; i++){
+        var value = randomVal + constant.suits[i];
+        randVal.push(value);
+    }
+    return randVal;
+}
+bySuit.innerHTML = "arranged by suit :"
+deckSuit.innerHTML = cardSuit();
 
 
 function shuffleDeck() { 
