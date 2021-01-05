@@ -34,45 +34,49 @@ function cardDeck() {
 byValue.innerHTML = "arranged by face or value in ascending / descending order :"
 deckValue.innerHTML = cardDeck();
 
-function cardSuit() {
-    // let randomVal = constant.cardValues[Math.floor(Math.random() * constant.cardValues.length)];
-    // let randVal = [];
-    // for(let i = 0; i<constant.suits.length; i++){
-    //     var value = randomVal + constant.suits[i];
-    //     randVal.push(value);
-    // }
-    // return randVal;
-    for (let j = 0; j < constant.suits.length; j++) {
-        let suitVal = constant.suits[j];        
-        for(let i = 0; i<constant.cardValues.length; i++){
-            var cardVal =  constant.cardValues[i];
-            switch (suitVal) {
-                case "♢":
-                    var value = suitVal + cardVal;
-                    diamond.push(value);
-                    break;                    
-                    break;
-                case "♡":
-                    var value = suitVal + cardVal;
-                    heart.push(value);
-                    break;
-                case "♠":
-                    var value = suitVal + cardVal;
-                    spade.push(value);
-                    break;
-                case "♣":
-                    var value = suitVal + cardVal;
-                    flower.push(value);
-                    break;
-                default:
-                    break;
-            }   
-        }
+function diamondCardSuit() {
+    let suit = constant.suits[0];
+    if(suit) {
+        for(let i = 0; i<constant.cardValues.length; i++) {
+            var cardVal = constant.cardValues[i] + suit;
+            diamond.push(cardVal);
+        }    
     }
-    return diamond + heart + spade + flower;
+    return diamond.reverse();
+}function heartCardSuit() {
+    let suit = constant.suits[1];
+    if(suit) {
+        for(let i = 0; i<constant.cardValues.length; i++) {
+            var cardVal = constant.cardValues[i] + suit;
+            heart.push(cardVal);
+        }    
+    }
+    return heart.reverse();
+}function spadeCardSuit() {
+    let suit = constant.suits[2];
+    if(suit) {
+        for(let i = 0; i<constant.cardValues.length; i++) {
+            var cardVal = constant.cardValues[i] + suit;
+            spade.push(cardVal);
+        }    
+    }
+    return spade.reverse();
+}
+function flowerCardSuit() {
+    let suit = constant.suits[3];
+    if(suit) {
+        for(let i = 0; i<constant.cardValues.length; i++) {
+            var cardVal = constant.cardValues[i] + suit;
+            flower.push(cardVal);
+        }    
+    }
+    return flower.reverse();
 }
 bySuit.innerHTML = "arranged by suit :"
-diamondSuit.innerHTML = cardSuit();
+diamondSuit.innerHTML = diamondCardSuit();
+heartSuit.innerHTML = heartCardSuit();
+spadeSuit.innerHTML = spadeCardSuit();
+flowerSuit.innerHTML = flowerCardSuit();
 
 function shuffleDeck() { 
     let randomDeck = [];   
