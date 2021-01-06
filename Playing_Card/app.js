@@ -1,168 +1,94 @@
-const constant = {
-    suits: ["♢","♡","♠","♣"],
-    cardValues: ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+class deck {
+    constructor() {
+        this.cards = [];
+        this.dealcard = null;
+        this.dealcards = [];        
+    }
+    createDeck(){
+        let suit = ["♢","♡","♠","♣"];
+        let value = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+        
+        for(let i = 0; i < suit.length; i++) {
+            for(let j = 0; j < value.length; j++) {
+                this.cards.push(value[j] + suit[i]);
+            }
+        }
+    }
+    shuffleDeck() {
+        let loc1, loc2, tmp;
+        for(let i = 0; i < 1000; i++){
+            loc1 = Math.floor(Math.random() * this.cards.length);
+            loc2 = Math.floor(Math.random() * this.cards.length);
+            tmp = this.cards[loc1];
+            this.cards[loc1] = this.cards[loc2];
+            this.cards[loc2] = tmp;
+        }
+    }
+    dealCard(){
+        let arrLoc = Math.floor(Math.random() * this.cards.length);
+        let val = this.cards.pop(arrLoc);
+        this.dealcard = val;
+        this.dealcards.push(val);;
+    }
 }
-var byValue = document.getElementById('byValue');
-var deckValue = document.getElementById('deckValue');
-var randomTitle = document.getElementById('random');
-var randDeck = document.getElementById('randomDeck');
-var card = document.getElementById('card');
-var cardName = document.getElementById('cardName');
-var bySuit = document.getElementById('bySuit');
-var diamondSuit = document.getElementById('diamond');
-var heartSuit = document.getElementById('heart');
-var spadeSuit = document.getElementById('spade');
-var flowerSuit = document.getElementById('flower');
-var deck = [];
-var diamond = [];
-var heart = [];
-var spade = [];
-var flower = [];
+const deckValLbl = document.getElementById('deck-val-label');
+const deckVal = document.getElementById('deck-value');
+const dealBtn = document.getElementById('deal');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const dealValue = document.getElementById('deal-card');
+const shuffdeck = document.getElementById('deck');
+const dealCardList = document.getElementById('deal-card-list');
 
-function cardDeck() {
-    for(let i = 0;i<constant.suits.length;i++){
-      const suit = constant.suits[i];
-      for(let j = 0;j<constant.cardValues.length;j++){
-        const cardValue = constant.cardValues[j];
-         var card = cardValue + suit;
-         deck.push(card);
-      }
-    }
-  return deck.reverse();
-  }
-// console.log("Arrange by Suits : " +cardDeck());
-byValue.innerHTML = "arranged by face or value in ascending / descending order :"
-deckValue.innerHTML = cardDeck();
+const d = new deck();
 
-function diamondCardSuit() {
-    let suit = constant.suits[0];
-    if(suit) {
-        for(let i = 0; i<constant.cardValues.length; i++) {
-            var cardVal = constant.cardValues[i] + suit;
-            diamond.push(cardVal);
-        }    
+d.createDeck();
+d.shuffleDeck();
+updateVal();
+prevBtn.disabled = true;
+nextBtn.disabled = true;
+//console.log(d.cards);
+deckValLbl.innerHTML = "Current Deck Card(s) :";
+// console.log(d.dealcards.length);
+dealBtn.addEventListener("click", e => {
+    d.dealCard();
+    console.log(d.dealcard);
+    dealValue.innerHTML = d.dealcard;
+    // console.log(d.dealcards.length);
+    updateVal();
+    if(deckVal.innerText === '52') {
+        deckValLbl.innerHTML = "Current Deck Card :";
+    }else if(deckVal.innerText < '52') {
+        deckValLbl.innerHTML = "Remaining Cards :"
+        prevBtn.disabled = false;
+    } else if(deckVal.innerText === '0') {
+        dealBtn.disabled = true;
     }
-    return diamond.reverse();
-}function heartCardSuit() {
-    let suit = constant.suits[1];
-    if(suit) {
-        for(let i = 0; i<constant.cardValues.length; i++) {
-            var cardVal = constant.cardValues[i] + suit;
-            heart.push(cardVal);
-        }    
-    }
-    return heart.reverse();
-}function spadeCardSuit() {
-    let suit = constant.suits[2];
-    if(suit) {
-        for(let i = 0; i<constant.cardValues.length; i++) {
-            var cardVal = constant.cardValues[i] + suit;
-            spade.push(cardVal);
-        }    
-    }
-    return spade.reverse();
-}
-function flowerCardSuit() {
-    let suit = constant.suits[3];
-    if(suit) {
-        for(let i = 0; i<constant.cardValues.length; i++) {
-            var cardVal = constant.cardValues[i] + suit;
-            flower.push(cardVal);
-        }    
-    }
-    return flower.reverse();
-}
-bySuit.innerHTML = "arranged by suit :"
-diamondSuit.innerHTML = diamondCardSuit();
-heartSuit.innerHTML = heartCardSuit();
-spadeSuit.innerHTML = spadeCardSuit();
-flowerSuit.innerHTML = flowerCardSuit();
-
-function shuffleDeck() { 
-    let randomDeck = [];   
-    for(let i = 0; i < 100; i++){
-        randomDeck.push(deck.splice(Math.floor(Math.random() * (deck.length + 1)),1)[0]);
-    }
-    return randomDeck;
-}
-// console.log("Shuffle Card Deck : " + shuffleDeck());
-randomTitle.innerHTML = "Shuffle Card Deck : ";
-randDeck.innerHTML = shuffleDeck();
-
-
-
-function dealCard() {
-    let randSuits = constant.suits[Math.floor(Math.random() * constant.suits.length)];
-    let randValue = constant.cardValues[Math.floor(Math.random() * constant.cardValues.length)];
-    let suitStrName = "";
-    let valueStrName = "";
-    switch (randSuits) {
-        case "♢":
-            suitStrName = "Diamonds";
-            break;
-        case "♡":
-            suitStrName = "Hearts";
-            break;
-        case "♠":
-            suitStrName = "Spades";
-            break;
-        case "♣":
-            suitStrName = "Flowers";
-            break;
-    
-        default:
-            break;
-    }
-
-    switch (randValue) {
-        case "A":
-            valueStrName = "Ace";
-            break;
-        case "2":
-            valueStrName = "Two";
-            break;
-        case "3":
-            valueStrName = "Three";
-            break;
-        case "4":
-            valueStrName = "Four";
-            break;
-        case "5":
-            valueStrName = "Five";
-            break;
-        case "6":
-            valueStrName = "Six";
-            break;
-        case "7":
-            valueStrName = "Seven";
-            break;
-        case "8":
-            valueStrName = "Eight";
-            break;
-        case "9":
-            valueStrName = "Nine";
-            break;
-        case "10":
-            valueStrName = "Ten";
-            break;
-        case "J":
-            valueStrName = "Jack";
-            break;
-        case "Q":
-            valueStrName = "Queen";
-            break;
-        case "K":
-            valueStrName = "King";
-            break;            
-        default:
-            break;
-    }
-    return randValue + randSuits + " " + valueStrName + " of " + suitStrName;
-}
-card.innerHTML = "Click to Deal Card"
-card.addEventListener("click", e => {
-    cardName.innerHTML = dealCard();
 })
 
-// card.innerHTML = dealCard();
-// console.log(dealCard());
+prevBtn.addEventListener("click", e => {
+    if(d.dealcards.length === '0') {
+        prevBtn.disabled = true;
+    }else{
+        let curLen = d.dealcards.length;
+        let curCardVal = d.dealcards.pop(curLen);
+        d.dealcard = curCardVal;
+        d.cards.push(curCardVal);
+        updateVal();
+        if(deckVal.innerText === '52') {
+            prevBtn.disabled = true;
+        }
+        nextBtn.disabled = false;
+    }
+})
+
+nextBtn.addEventListener("click", e => {
+
+})
+
+
+function updateVal(){
+    shuffdeck.innerHTML = d.cards;
+    deckVal.innerHTML = d.cards.length;
+    dealCardList.innerHTML = d.dealcards;
+}

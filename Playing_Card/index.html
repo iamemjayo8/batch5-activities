@@ -3,27 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playing Card</title>
+    <title>Document</title>
 </head>
 <body>
-    
-    <h3 id="random"></h3>
-    <p id="randomDeck"></p>
-    <hr>
-    <h3 id="bySuit"></h3>
-    <p id="diamond"></p>
-    <p id="heart"></p>
-    <p id="spade"></p>
-    <p id="flower"></p>
-    <hr>
-    <h3 id="byValue"></h3>
-    <p id="deckValue"></p>
-    <hr>
-    <br>
-    <br>
-    <h3 id="card"></h3>
-    <p id="cardName"></p>
+    <table border="0px" siz>
+        <thead>
+            <tr>
+                <th colspan="2">Card</th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p id="deal-card"></p>
+                </td>
+            </tr>
+            <tr>
+                <td id="deck-val-label"></td>
+                <td id="deck-value"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>Deck :</p>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <div style="height: auto; width: 250px;">
+                        <p id="deck" style="word-wrap: break-word;"></p>
+                    </div>                         
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="deal">Deal</button>
+                </td>
+            </tr>
+            <tr>
+                <td id="deal-card-list">
 
-    <script src="app.js"></script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="prev">Prev</button>
+                    <button id="next">Next</button>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
 </body>
 </html>
