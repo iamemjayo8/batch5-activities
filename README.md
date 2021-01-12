@@ -13,6 +13,7 @@
 
 - [Coding Challege](https://jsfiddle.net/iamemjay08/n8ay1feq/24/)
 - [Quiz Game](/quiz/quiz.html)
+- [Pig Game](https://iamemjayo8.github.io/batch5-pig-game/)
 
 
 
