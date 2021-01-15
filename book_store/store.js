@@ -78,7 +78,8 @@ function sellBook(title, quantity) {
         if(qty >= quantity){          
           store.inventory[x].quantity -= quantity;
           let soldAmount = store.inventory[x].price * quantity;
-          store.earnings += soldAmount; 
+          store.earnings += soldAmount;
+          console.log("Successfully sold " + title + " quantity: " + qty + "total amoung : $"+ soldAmount ); 
         }else{
           console.log('Not enough quantity only ' + qty + ' left.')
         }
